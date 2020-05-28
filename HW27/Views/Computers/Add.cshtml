@@ -1,0 +1,56 @@
+﻿@model HW27.Models.Product
+
+@{
+    ViewData["Title"] = "List";
+    Layout = "ComputerLayout";
+}
+
+<form method="post" action="Add">
+
+    <div class="row">
+        <div class="col-md-10">
+            <label for="Name">Name</label>
+        </div>
+        <div class="col-md-10">
+            <input asp-for="Name" type="text">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-10">
+            <label for="Model">Model</label>
+        </div>
+        <div class="col-md-10">
+            <input asp-for="Model" type="text">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-10">
+            <label for="Memory">Memory  </label>
+            <input class="form-check-label" asp-for="Memory" type="text">
+        </div>
+       </div>
+        <div class="row">
+            <div class="col-md-10">
+                <label for="Prise">Prise  </label>
+                <input class="form-check-label" asp-for="Prise" type="text">
+            </div>
+        </div><br><div class="row">
+            <div class="col-md-10">
+                <label for="Category">Category</label>
+            </div>
+            <div class="col-md-10">
+                <select class="form-control form-control-lg" name="CategoryId" id="CategoryId" asp-for="CategoryId">
+                    @foreach (var item in ViewBag.Category)
+                    {
+                        <option value="@item.Id">@item.Name</option>
+                    }
+                </select>
+            </div>
+        </div><br>
+        <div class="row">
+            <div class="col-md-10">
+                <input type="submit" class=" btn btn-primary" value="Add">
+            </div>
+        </div>
+
+</form>

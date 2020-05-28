@@ -1,0 +1,42 @@
+﻿@model List<HW27.Models.Product>
+
+@{
+    ViewData["Title"] = "List";
+    Layout = "ComputerLayout";
+    var Categories = ViewBag.Categories;
+}
+<table class="table table-striped table-inverse">
+    <tr class="text-center">
+        <th colspan="5">List</th>
+    </tr>
+    <tr>
+        <td>Id</td>
+        <td>Name</td>
+        <td>Model</td>
+        <td>Memory</td>
+        <td>Prise</td>
+        <td>Category</td>
+    </tr>
+    @if (Model.Count > 0)
+    {
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Name</td>
+                <td>@item.Model</td>
+                <td>@item.Memory</td>
+                <td>@item.Prise</td>
+                <td>@item.CategoryId</td>
+            </tr>
+
+        }
+    }
+    else
+    {
+        <tr class="text-center">
+            <th colspan="5">Empty</th>
+        </tr>
+
+    }
+</table>
